@@ -8,7 +8,13 @@ class Seq:
     def len(self):
         return len(self.strbases)
 
-s1= Seq("AATCGATCC")
+
+class Gene(Seq):
+    """This class is derived from the Seq
+    All the objects of class Gene will
+    inheritage the methods from Seq Class"""
+    pass
+s1= Gene("AATCGATCC")
 s2= Seq("TTACGGAT")
 
 str1 = s1.strbases
