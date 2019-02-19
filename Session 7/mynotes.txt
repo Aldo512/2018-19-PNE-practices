@@ -73,4 +73,5 @@ Example.    NAME = 'mynotes.txt'
 Example.    You can read or write from and to the file with python programs as many times as you execute the programs.
 
 
--- SOCKETS.
+-- SOCKETS.Helllo!!!! just writing into your file!
+WAT WAT WAT
