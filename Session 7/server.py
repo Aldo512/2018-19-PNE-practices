@@ -1,5 +1,5 @@
 import socket
-
+import termcolor
 PORT = 8080
 IP = '212.128.253.110'
 MAX_OPEN_REQUEST = 5
@@ -10,7 +10,7 @@ def process_client(cs):
     #Reading the message from the client
     msg = cs.recv(2048).decode('utf-8')
 
-    print('Message from the client: {}'.format(msg))
+    termcolor.cprint('Message from the client: {}'.format(msg), 'blue')
 
     #Sending the message back to the client
     #(because we are an echo server)
