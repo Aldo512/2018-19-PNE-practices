@@ -1,14 +1,24 @@
 import socket
 
 # SERVER IP, PORT
-IP = "212.128.253.110"
+IP = "212.128.253.64"
 PORT = 8080
 
-# Create the socket
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+while True:
 
-# establish the connection to the Server (IP, PORT)
-s.connect((IP, PORT))
+    msg = input('> ')
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# Close the socket
-s.close()
+    # establish the connection to the Server (IP, PORT)
+    s.connect((IP, PORT))
+
+    # Send the request message to the server
+    s.send(str.encode(msg))
+
+    # Receive the servers response
+    response = s.recv(2048).decode()
+
+    # Print the server's response
+    print("Response: {}".format(response))
+
+    s.close()
