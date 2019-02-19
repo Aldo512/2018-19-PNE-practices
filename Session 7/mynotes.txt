@@ -1,0 +1,76 @@
+Here you will take your notes.
+
+PROGRAMMING NETWORKS
+......................................................................................................................
+
+
+To communicate programs there are many models (ex. client-server model).
+
+---------------
+CLIENT-SERVER MODEL
+---------------
+
+Client: starts communication and sends message to server (it NEEDS the server).
+Server: takes message from many clients and responds (it takes requests even if there are no clients connected yet).
+
+
+INTERNET
+-----
+
+Clients and servers are connected through networks - the internet.
+
+
+--IS COMMUNICATION WORKING?
+
+To check if the communication works, you can write 'ping <IP Address>' at the terminal. Stop it with CtrlC.
+
+Each line is a message (ping) from our computer to the server, and the time it takes to establish the communication
+(times are more or less the same, but the never the same, because internet is a chaotic network).
+
+Using this command you can estimate how far are the two computers communicating each other.
+
+In the internet, everything works with IP Addresses. You can connect with any machine using this.
+
+Example.-   bdelgado@lambda03:~$ ping 8.8.8.8
+            PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+            64 bytes from 8.8.8.8: icmp_seq=1 ttl=121 time=3.61 ms
+            64 bytes from 8.8.8.8: icmp_seq=2 ttl=121 time=3.57 ms
+
+
+--IP ADDRESS.
+
+All computers connected to internet have one or more network interfaces, each with an IP ADDRESS. This identification
+may change depending on where the computer is being connected.
+
+Example.-   My phone IP address at URJC is 10.0.54.93 (you can check it at wifi settings).
+            My computer IP address at URJC is 212.128.253.67 (you can check it at the terminal with 'ifconfig').
+            My teacher's computer IP address at URJC is 212.128.253.64.
+
+
+--URL.
+
+To identify machine interfaces for humans, we can use URLs. They also have IP Addresses!
+
+Example.-   bdelgado@lambda03:~$ ping www.google.com
+            PING www.google.com (216.58.211.228) 56(84) bytes of data.
+            64 bytes from mad01s24-in-f228.1e100.net (216.58.211.228): icmp_seq=1 ttl=55 time=3.98 ms
+            64 bytes from mad01s24-in-f228.1e100.net (216.58.211.228): icmp_seq=2 ttl=55 time=3.70 ms
+
+
+--PORT.
+
+This number identifies specific servers within IP addresses. For web servers, we usually use port 80.
+If you don't specify ports, communication will be refused.
+
+
+-- WRITING AND READING.
+
+Example.    NAME = 'mynotes.txt'
+            myfile = open(NAME, 'r')
+            print('File opened: {}'.format(myfile.name))
+            contents = myfile.read()
+
+Example.    You can read or write from and to the file with python programs as many times as you execute the programs.
+
+
+-- SOCKETS.
