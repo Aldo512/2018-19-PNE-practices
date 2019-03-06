@@ -5,25 +5,33 @@ def count_a(seq):
     Cs = 0
     Ts = 0
     Gs = 0
-    for b in range(len(seq)):
-        for a in seq[b]:
-            if a == 'A':
-                As += 1
-            if a == 'C':
-                Cs += 1
-            if a == 'T':
-                Ts += 1
-            if a == 'G':
-                Gs += 1
+
+    for a in seq:
+        if a == 'A':
+            As += 1
+        if a == 'C':
+            Cs += 1
+        if a == 'T':
+            Ts += 1
+        if a == 'G':
+            Gs += 1
 
     return As, Cs, Ts, Gs
 
 
 # Main program
 
-s = [input('Please enter a DNA string: '), input('Please enter a second DNA string: ')]
+first = input('Enter the first DNA string:')
+f = count_a(first)
+sec = input('Enter the second DNA string:')
+s = count_a(sec)
+
+# Calculate the total length
+ft = len(first)
 
 bases = 'ACTG'
-l = count_a(s)
-for ba in range(len(bases)-2):
-    print('The number of', bases[ba], 'in both sequences is', count_a(s[ba]))
+for L in range(len(bases)):
+    print('The percentages of', bases[L], 'in the first string', 'is {}%'''.format(round((100.0 * f[L]) / ft, 1)))
+
+for L in range(len(bases)):
+    print('The percentages of', bases[L], 'in the second string', 'is {}%'''.format(round((100.0 * s[L]) / ft, 1)))
