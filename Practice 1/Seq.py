@@ -15,7 +15,8 @@ class Seq:
         dict1 = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
         for a in self.strbases:
             complement.append(dict1[a])
-        return complement
+        compli = ''.join(complement)
+        return compli
     def reverse(self):
         return self.strbases[::-1]
 
@@ -44,6 +45,6 @@ print("  Length: {}".format(l1))
 print("Sequence 2: {}".format(str2))
 print("  Length: {}".format(l2))
 
-al = Seq('AAACCTTGGAAaldo', '')
-all = al.reverse()
+al = Seq('AAACCTTGGAA', '')
+all = al.compl()
 print(all)
