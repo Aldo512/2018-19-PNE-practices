@@ -1,8 +1,8 @@
 import socket
 
 # Configure the Server's IP and PORT
-PORT = 8080
-IP = "212.128.253.75"
+PORT = 9052
+IP = "127.0.0.1"
 MAX_OPEN_REQUESTS = 5
 
 # Counting the number of connections
@@ -55,14 +55,14 @@ try:
         print("Message from client: {}".format(msg))
 
         # Send the messag
-        message = "\n\nHello from the teacher's server"
+        message = "\n\nHello from the teacher's server\n"
         send_bytes = str.encode(message)
         # We must write bytes, not a string
 
+        al = Seq(msg, '')
         all = al.reverse()
         com = al.compl()
         send_compl = str.encode(com)
-        al = Seq(msg, '')
         send_reversed = str.encode(all)
         clientsocket.send(send_reversed)
         clientsocket.send(send_bytes)
