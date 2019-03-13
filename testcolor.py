@@ -1,3 +1,6 @@
 import termcolor
 
-termcolor.cprint('Hey! This is printed in green!', 'yellow')
+termcolor.cprint("Hey! this is printed in green!", 'red')
+g = 'dfgr'
+
+termcolor.cprint(g, 'red')
