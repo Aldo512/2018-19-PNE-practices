@@ -18,3 +18,4 @@ class Seq:
     def reverse(self):
         return self.strbases[::-1]
 
+print(Seq('AAA').compl())
