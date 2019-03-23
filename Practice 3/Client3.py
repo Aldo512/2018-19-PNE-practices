@@ -1,7 +1,7 @@
 import socket
 
 # SERVER IP, PORT
-IP = "127.0.0.1"
+IP = "192.168.56.1"
 PORT = 8080
 
 # First, create the socket
@@ -14,8 +14,9 @@ s.connect((IP, PORT))
 # Send data. No strings can be send, only bytes
 # It necesary to encode the string into bytes
 
-
-lolol = input('Please enter the DNA string that you want to be checked: ')
+#PLACE HERE YOUR MESSAGE
+lolol = '''
+1'''
 
 
 s.send(str.encode(lolol))
