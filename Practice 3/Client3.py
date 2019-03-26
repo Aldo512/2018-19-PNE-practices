@@ -15,8 +15,19 @@ s.connect((IP, PORT))
 # It necesary to encode the string into bytes
 
 #PLACE HERE YOUR MESSAGE
-lolol = '''
-1'''
+lolol = '''AACGATCGACTTGACGATCGATCGCTasATCGCGCGCTAATATAAAACGACTCGCATCGACTCGACTAGCTAGCATCA
+reverse
+len
+perca
+percc
+percg
+perct
+complement
+counta
+countg
+countc
+countt
+'''
 
 
 s.send(str.encode(lolol))
