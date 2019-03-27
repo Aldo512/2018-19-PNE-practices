@@ -1,13 +1,9 @@
 import socket
 import termcolor
 
-
-
-
 IP = "192.168.56.1"
 PORT = 8080
 MAX_OPEN_REQUESTS = 5
-
 
 def process_client(cs):
     """Process the client request.
@@ -28,19 +24,16 @@ def process_client(cs):
     # Body (content to send)
 
     # This new contents are written in HTML language
-    contents = """
-    <!DOCTYPE html>
-    <html lang="en" dir="ltr">
-      <head>
-        <meta charset="utf-8">
-        <title>Green server</title>
-      </head>
-      <body style="background-color: blue;">
-        <h1>GREEN SERVER</h1>
-        <p>I am the Blue Server! >:) </p>
-      </body>
-    </html>
-    """
+    n_msg = msg.splitlines()
+    u_msg = n_msg[0].split(' ')
+    get = u_msg[1]
+    dict1 = {'/': 'Index.html', '/Blue': 'Blue.html', '/favicon.ico': 'Favicon.html', '/Pink': 'Pink.html'}
+    if get in dict1:
+        html = open(dict1[get], 'r')
+        contents = html.read()
+    else:
+        html = open('Error.html', 'r')
+        contents = html.read()
 
     # -- Everything is OK
     status_line = "HTTP/1.1 200 OK\r\n"
@@ -56,7 +49,6 @@ def process_client(cs):
     # Close the socket
     cs.close()
 
-
 # MAIN PROGRAM
 
 # create an INET, STREAMing socket
@@ -64,7 +56,6 @@ serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the IP and PORT
 serversocket.bind((IP, PORT))
-
 # Configure the server sockets
 # MAX_OPEN_REQUESTS connect requests before refusing outside connections
 serversocket.listen(MAX_OPEN_REQUESTS)
@@ -76,6 +67,8 @@ while True:
     # The server is waiting for connections
     print("Waiting for connections at {}, {} ".format(IP, PORT))
     (clientsocket, address) = serversocket.accept()
+
+
 
     # Connection received. A new socket is returned for communicating with the client
     print("Attending connections from client: {}".format(address))
