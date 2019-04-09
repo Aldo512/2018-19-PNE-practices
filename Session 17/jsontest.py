@@ -8,27 +8,22 @@ f = open("person.json", 'r')
 # Now person is a dictionary with all the information
 person = json.load(f)
 
-# Print the information in the object
-print()
-termcolor.cprint("Name: ", 'green', end="")
-print(person['Firstname'], person['Lastname'])
+phone = person["phoneNumber"]
+name = []
+for people in range(len(person["Firstname"])):
+    name.append(person["Firstname"][people] + " " + person["Lastname"][people])
+age = person["age"]
+cprint = termcolor.cprint
 
-termcolor.cprint("Age: ", 'green', end="")
-print(person['age'])
+print('Number of people in the library: ' + str(len(name)))
 
-# Get the phoneNumber list
-phoneNumbers = person['phoneNumber']
+for names in range(len(name)):
 
-# Print the number of elements int the list
-termcolor.cprint("Phone numbers: ", 'green', end='')
-print(len(phoneNumbers))
+    cprint("Name:", 'yellow')
+    cprint(name[names], 'red')
+    cprint(' ' + 'Age: ' + str(age[names]), 'cyan')
 
-# Print all the numbers
-for i, num in enumerate(phoneNumbers):
-    termcolor.cprint("  Phone {}:".format(i), 'blue')
+    for types in range(len(phone[names])):
 
-    # The element num contains 2 fields: number and type
-    termcolor.cprint("    Type: ", 'red', end='')
-    print(num['type'])
-    termcolor.cprint("    Number: ", 'red', end='')
-    print(num['number'])
+        cprint('  ' + 'Phone: ' + phone[names][types]['type'], 'blue')
+        cprint('    ' + phone[names][types]["number"], 'green')

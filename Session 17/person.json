@@ -1,9 +1,16 @@
 {
-    "Firstname": "Troll",
-    "Lastname": "Face",
-    "age": 20,
+    "Firstname": ["Troll", "Ricky", "Rocky"],
+    "Lastname": ["Face","McRich", "Balboa"],
+    "age": [20, 15, 65],
     "phoneNumber": [
+      [
       {"number": "1111", "type": "home"},
-      {"number": "333", "type" : "office"}
+      {"number": "333", "type" : "office"}],
+
+      [{"number": "1234", "type": "home"},
+    {"number": "5555", "type": "office"}],
+
+      [{"number":"98755", "type": "home"},
+        {"number": "44444", "type": "office"}]
     ]
 }
