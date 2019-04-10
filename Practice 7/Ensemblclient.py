@@ -1,14 +1,28 @@
-# -- Example of a client that uses the HTTP.client library
-# -- for requesting a JSON object and printing their
-# -- contents
-import http.client
-import json
-import termcolor
+import requests, sys
 
-SERVER = 'http://www.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000165879;r=10:97319267-97321915'
+server = "http://rest.ensembl.org"
+ext = "/sequence/id/GENSCAN00000000001?type=protein;object_type=predictiontranscript;db_type=core;species=homo_sapiens"
 
-print("\nConnecting to server: {}\n".format(SERVER))
+r = requests.get(server + ext, headers={"Content-Type": "application/json"})
 
-page = http.client.HTTPConnection(SERVER, 80)
+if not r.ok:
+    r.raise_for_status()
+    sys.exit()
 
-print(page)
+decoded = r.json()
+filein = repr(decoded)
+
+done = filein.split(',')
+writing = open('Jsontest.json', 'w')
+
+for info in range(len(done)):
+
+    if info < len(done)-1:
+        writing.write(done[info].replace("'", '"') + ',' + '\n')
+
+    elif info == len(done)-1:
+        writing.write(done[info].replace("'", '"'))
+
+writing.close()
+print(len(decoded['seq']))
+print(sys.path)
